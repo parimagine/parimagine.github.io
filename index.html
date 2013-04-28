@@ -74,19 +74,26 @@
             <li data-target="#myCarousel" data-slide-to="1"></li>
           </ol>
           <!-- Carousel items -->
-          <script id="photo-template" type="text/x-handlebars-template">
-            <div class="active item" style="text-align: center">
-              <img src="http://www.parimagine.fr/Piwi/galleries/Photos-Presse/Cinema/{{photos[0].src}}" alt="" style="margin: 0 auto;">
-            </div>
-          </script>
           <div class="carousel-inner">
-
-
+            <div class="active item" style="text-align: center">
+              <img src="http://www.parimagine.fr/Piwi/galleries/Photos-Presse/Cinema/P318.jpg" alt="" style="margin: 0 auto;">
+              <div class="carousel-caption" style="display: none;">
+                <h4>La crise est finie ?</h4>
+                <p>Le cinéma Paramount, il y a quelques années, la crise était déjà finie.</p>
+              </div>            
+            </div>
+            <div class="item" style="text-align: center">
+              <img src="http://www.parimagine.fr/Piwi/galleries/Photos-Presse/Cinema/P317.jpg" alt="" style="margin: 0 auto;">
+              <div class="carousel-caption" style="display: none;">
+                <h4>La crise est finie ?</h4>
+                <p>Le cinéma Paramount, il y a quelques années, la crise était déjà finie.</p>
+              </div>            
+            </div>
           </div>
           <!-- Carousel nav -->
           <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
           <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-        </div> Ò
+        </div>      
 
       </div> <!-- /.pagination-centered -->
       
@@ -96,25 +103,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="/assets/jquery/jquery-1.9.1.js"></script>
-    <script src="/assets/handlebars/handlebars.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.js"></script>
-    <script type="text/javascript">
-      jQuery(document).ready(function($) {
-        var source   = $("#photo-template").html();
-        var template = Handlebars.compile(source);
-
-        var context = { 
-          photos: [
-            {src: "P318.jpg"}
-          ]
-        };
-
-        var html = template(context);
-
-        $('.carousel-inner').html(html);
-
-      });
-    </script>
 
   </body>
 </html>
