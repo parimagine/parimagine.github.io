@@ -89,13 +89,48 @@
  	// Enable the visual refresh
     google.maps.visualRefresh = true;
  	
+      
  	function initialize() {
+        var geocoder = new google.maps.Geocoder();
+        
         var mapOptions = {
           center : new google.maps.LatLng(48.859746, 2.351074),
           zoom : 13,
           mapTypeId : google.maps.MapTypeId.ROADMAP
         };
+        
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+        
+        function codeAddress(tuple) {
+            geocoder.geocode( { 'address': tuple.goo}, function(results, status) {
+              if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+                google.maps.event.addListener(marker, 'click', function() {
+                	window.location.href = 'https://parimaginep1894179457trial.hanatrial.ondemand.com/parimagine/?search='+tuple.par;
+                });            
+              } else {
+                alert("Geocode was not successful for the following reason: " + status);
+              }
+            });
+        }    
+        var list = [ {
+			par: 'Chapon',
+			goo: 'Paris rue Chapon'
+        },{
+			par: 'Saint Ouen',
+			goo: 'rue raspail Saint Ouen'
+        },{
+			par: 'Mont Cenis',
+			goo: '101 rue du Mont Cenis'
+        }
+		];
+        for (i=0;i<3;i++) {
+            codeAddress(list[i]);
+        }
     }
  	
     google.maps.event.addDomListener(window, 'load', initialize);
