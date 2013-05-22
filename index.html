@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" height="100%">
 
       <iframe id="parimagine_iframe" src="https://parimaginep1894179457trial.hanatrial.ondemand.com/parimagine" height="100%" width="100%" seamless style="height:100%; width:100%;"></iframe>
       
@@ -61,24 +61,11 @@
     <script src="/assets/jquery/jquery-1.9.1.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.js"></script>
 
-    <script language="JavaScript">
-    <!--
-    function autoResize(id){
-        var newheight;
-        var newwidth;
-    
-        if(document.getElementById){
-            newheight = document.getElementById(id).contentWindow.document.body.scrollHeight;
-            newwidth = document.getElementById(id).contentWindow.document.body.scrollWidth;
-        }
-    
-        document.getElementById(id).height = (newheight) + "px";
-        document.getElementById(id).width = (newwidth) + "px";
-    }
-    
-    autoResize("parimagine_iframe");
-    
-    //-->
+    <script>
+   	// For other good browsers.
+      $('#parimagine_iframe').load(function() {
+        this.style.height = this.contentWindow.document.body.offsetHeight + 'px';
+      });    
     </script>
   </body>
 </html>
