@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Peignot';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Peignot '), url('/assets/fonts/Peignot.woff') format('woff');
+}
+
 html {
 	overflow-y: scroll;
 }
