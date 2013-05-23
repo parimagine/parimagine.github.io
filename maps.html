@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>parimagine - carte</title>
+    <title>Parimagine - carte</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="mgouthiere, cthiebaud">
@@ -54,7 +54,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <div class="brand">parimagine</div>
+          <div class="brand">Parimagine</div>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class=""><a href="index.html">maison</a></li>
@@ -103,33 +103,36 @@
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
         
         function codeAddress(tuple) {
-            geocoder.geocode( { 'address': tuple.goo}, function(results, status) {
+            geocoder.geocode( { 'address': tuple.goo }, function(results, status) {
               if (status == google.maps.GeocoderStatus.OK) {
-                map.setCenter(results[0].geometry.location);
+                // map.setCenter(results[0].geometry.location);
                 var marker = new google.maps.Marker({
                     map: map,
+                    // icon: "https://parimaginep1894179457trial.hanatrial.ondemand.com/parimagine/documents/arrondissements/paris-11/872.jpg",
                     position: results[0].geometry.location
                 });
+                console.log(tuple.par + ": "+ tuple.goo + ": "+ results[0].geometry.location);
                 google.maps.event.addListener(marker, 'click', function() {
                 	window.location.href = 'https://parimaginep1894179457trial.hanatrial.ondemand.com/parimagine/?search='+tuple.par;
                 });            
               } else {
-                alert("Geocode was not successful for the following reason: " + status);
+                console.log("Geocode was not successful for the following reason: " + status);
               }
             });
         }    
+
         var list = [ {
-			par: 'Chapon',
-			goo: 'Paris rue Chapon'
-        },{
-			par: 'Saint Ouen',
-			goo: 'rue raspail Saint Ouen'
-        },{
-			par: 'Mont Cenis',
-			goo: '101 rue du Mont Cenis'
-        }
-		];
-        for (i=0;i<3;i++) {
+           par: 'Chapon',
+           goo: 'Paris rue Chapon'
+          },{
+           par: 'Saint Ouen',
+           goo: 'rue raspail Saint Ouen'
+          },{
+           par: 'Mont Cenis',
+           goo: '101 rue du Mont Cenis'
+        }];
+
+        for ( i=0; i<list.length; i++) {
             codeAddress(list[i]);
         }
     }

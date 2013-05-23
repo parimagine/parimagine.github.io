@@ -1,9 +1,16 @@
 @font-face {
-  font-family: 'Peignot';
+  font-family: 'Peignot', serif;
   font-style: normal;
   font-weight: 400;
-  src: local('Peignot '), url('/assets/fonts/Peignot.woff') format('woff');
+  src: local('Peignot'), url('/assets/fonts/Peignot.woff') format('woff');
 }
+
+ @font-face {
+   font-family: 'ParmaPetit', serif;
+   font-style: normal;
+   font-weight: 400;
+   src: local('ParmaPetit'), url('/assets/fonts/ParmaPetit-Normal.woff') format('woff');
+ }
 
 html {
 	overflow-y: scroll;
@@ -11,5 +18,14 @@ html {
 
 body {
   padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+  font-family: 'Ubuntu', sans-serif; 
 }
 
+h2#phototheque, 
+.navbar-inner .brand {
+  font-family: 'ParmaPetit';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  color: SteelBlue;
+}
