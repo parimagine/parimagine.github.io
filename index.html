@@ -24,6 +24,12 @@
                     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="../assets/ico/favicon.png">
     -->
+    <style type="text/css">
+    .buy {
+    	cursor: pointer;
+    	opacity: .2;
+    }
+    </style>
   </head>
 
   <body>
@@ -52,34 +58,6 @@
     </div>
 
     <div id="container" class="container">
-    <!--
-      <ul class="nav nav-tabs">
-        <li class="active"><a href="#iframe1" data-toggle="tab">Les Halles</a></li>
-        <li               ><a href="#iframe2" data-toggle="tab">Îlot Chalon</a></li>
-      </ul>
-
-       <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade in active" id="iframe1">    
-          <div class="row">
-            <div class="span12 pagination-centered iframe_container">
-              <img class="img-polaroid" src="/images/les-halles-couverture-from-powerpoint.jpg" />
-            </div>
-          </div>
-        </div>
-        <div class="tab-pane fade in active" id="iframe2">    
-          <div class="row">
-            <div class="span12 pagination-centered iframe_container">
-              <img class="img-polaroid" src="/images/ilot-chalon-from-powerpoint.png" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-paris-de-gerard-bloncourt.jpg
-le-pieton-du-11eme.jpg
-memoire-de-zinc.jpg      
-    -->
-
 
     </div> <!-- /container -->
 
@@ -103,7 +81,25 @@ memoire-de-zinc.jpg
   <div class="tab-pane fade in" id="iframe{{this.id}}">    
     <div class="row">
       <div class="span12 pagination-centered iframe_container">
+		<div style="float:left; visibility: hidden;">
+			<a href="{{this.f}}" target="_fnac_">
+				<img class="buy" src="/images/120px-Fnac.svg.png" style="width:60px; height:auto;  margin: 0 0 20px 0;"/>
+			</a>
+			<br/>
+			<a href="{{this.a}}" target="_amazon_">
+				<img class="buy" src="/images/amazon.jpg" style="width:60px; height:auto; "/>
+			</a>
+		</div>
         <img class="img-polaroid" src="/images/{{this.i}}" style="height:600px;"/>
+		<div style="float: right;">
+			<a href="{{this.f}}" target="_fnac_">
+				<img class="buy" src="/images/120px-Fnac.svg.png" style="width:60px; height:auto;  margin: 0 0 20px 0;"/>
+			</a>
+			<br/>
+			<a href="{{this.a}}" target="_amazon_">
+				<img class="buy" src="/images/amazon.jpg" style="width:60px; height:auto; "/>
+			</a>
+		</div>
       </div>
     </div>
   </div>
@@ -113,14 +109,38 @@ memoire-de-zinc.jpg
     <script type="text/javascript">
       var items = {
           items:[
-            {id:"1", t:"Les Halles", i:"les-halles-couverture-from-powerpoint.jpg"},
-            {id:"2", t:"Îlot Chalon", i:"ilot-chalon-from-powerpoint.png"},
-            {id:"3", t:"Gérard Bloncourt", i:"paris-de-gerard-bloncourt.jpg"},
-            {id:"4", t:"Piéton du 11ème", i:"le-pieton-du-11eme.jpg"},
-            {id:"5", t:"Mémoire de zinc", i:"memoire-de-zinc.jpg"},
-            {id:"6", t:"Paris Bohème", i:"paris-boheme.jpg"},
-            {id:"7", t:"Claude Vénézia", i:"paris-de-claude-venezia.jpg"},
-            {id:"8", t:"Mémoires des rues", i:"memoires-des-rues.jpg"}
+            {id:"1", t:"Les Halles", i:"les-halles-couverture-from-powerpoint.jpg",
+            f:"http://livre.fnac.com/a5715747/Martha-Carroll-Les-Halles",
+            a:"http://www.amazon.fr/dp/2916195467"
+            },
+            {id:"2", t:"Îlot Chalon", i:"ilot-chalon-from-powerpoint.png",
+            f:"http://livre.fnac.com/a5715746/Francis-Campiglia-L-ilot-Chalon-chroniques-d-un-quartier-de-Paris",
+           	a:"http://www.amazon.fr/dp/2916195424"
+            },
+            {id:"3", t:"Gérard Bloncourt", i:"paris-de-gerard-bloncourt.jpg",
+            f:"http://livre.fnac.com/a3334029/Gerald-Bloncourt-Le-Paris-de-Gerald-Bloncourt",
+            a:"http://www.amazon.fr/dp/2916195351"
+            },
+            {id:"4", t:"Piéton du 11ème", i:"le-pieton-du-11eme.jpg",
+            f:"http://livre.fnac.com/a2990051/Gerard-Lavalette-Le-pieton-du-11eme",
+            a:"http://www.amazon.fr/dp/2916195343"
+            },
+            {id:"5", t:"Mémoire de zinc", i:"memoire-de-zinc.jpg",
+            f:"http://livre.fnac.com/a5085718/Gerard-Lavalette-Memoire-de-zinc",
+            a:"http://www.amazon.fr/dp/2916195459"
+            },
+            {id:"6", t:"Paris Bohème", i:"paris-boheme.jpg",
+            f:"http://livre.fnac.com/a3897287/J-Jehan-Paris-boheme-1960",
+            a:"http://www.amazon.fr/dp/2916195394"
+            },
+            {id:"7", t:"Claude Vénézia", i:"paris-de-claude-venezia.jpg",
+            f:"http://livre.fnac.com/a4049701/Leon-Claude-Venezia-Le-Paris-de-Leon-Claude-Venezia",
+            a:"http://www.amazon.fr/dp/2916195408"
+            },
+            {id:"8", t:"Mémoires des rues", i:"memoires-des-rues.jpg",
+            f:"http://recherche.fnac.com/Search/SearchResult.aspx?SCat=2%211&Search=memoires+des+rues+parimagine&sft=1&submitbtn=OK",
+            a:"http://www.amazon.fr/s/ref=nb_sb_noss?__mk_fr_FR=%C3%85M%C3%85Z%C3%95%C3%91&url=search-alias%3Dstripbooks&field-keywords=memoires+des+rues+parimagine&rh=n%3A301061%2Ck%3Amemoires+des+rues+parimagine"
+			}
           ]
       };
 
@@ -132,23 +152,13 @@ memoire-de-zinc.jpg
       $('#container').html(template(items));
       $('#container ul li:first-child').addClass('active');
       $('#container div div:first-child').addClass('active');
+      
+	  $(".buy").hover(function() {
+	     $(this).stop().animate({ opacity: 1 });
+	  },function() {
+	     $(this).stop().animate({ opacity: 0.2 });
+	  });
 
-      /*
-    	var W = $(window).width(),
-        H = $(window).height();
-
-    	$('img').height(H-100);
-    	
-    	function imgsize() {
-    	    var W = $(window).width(),
-    	        H = $(window).height();
-
-    	    $('img').height(H-100);
-    	}
-    	
-    	$(window).bind('resize', function() { imgsize(); });
-    	*/
-    
     });
     </script>
   </body>
