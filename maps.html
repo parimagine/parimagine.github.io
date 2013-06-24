@@ -59,6 +59,7 @@
             <ul class="nav">
               <li class=""><a href="index.html">nouveautés</a></li>
               <li class=""><a href="contacts.html">contacts</a></li>
+              <li class=""><a href="who.html">qui sommes nous</a></li>
               <li class=""><a href="phototheque.html">photothèque</a></li>
               <li class=""><a href="before-after.html">avant/après</a></li>
               <li class="active"><a href="#">carte</a></li>
@@ -121,16 +122,37 @@
             });
         }    
 
+        function markAddress(addr) {
+          var marker = new google.maps.Marker({
+              map: map,
+              // icon: "https://parimaginep1894179457trial.hanatrial.ondemand.com/parimagine/documents/arrondissements/paris-11/872.jpg",
+              position: addr.loc
+          });
+          google.maps.event.addListener(marker, 'click', function() {
+            window.location.href = 'https://parimaginep1894179457trial.hanatrial.ondemand.com/parimagine/?search='+addr.par;
+          });            
+        }    
+
         var list = [ {
-           par: 'Chapon',
-           goo: 'Paris rue Chapon'
+           par: 'Rosiers',
+           goo: 'Rue+des+Rosiers',
+           loc: new google.maps.LatLng(48.857685,2.358413)
           },{
-           par: 'Mont Cenis',
-           goo: '101 rue du Mont Cenis'
+           par: "Épée",
+           goo: "Rue+de+l'Abb%C3%A9+de+l'%C3%89p%C3%A9e",
+           loc: new google.maps.LatLng(48.843941,2.338962)
+          },{
+           par: "Groult",
+           goo: "Rue+de+l'Abb%C3%A9+Groult",
+           loc: new google.maps.LatLng(48.839131,2.297258)
+          },{
+           par: "Fouquets",
+           goo: "99+Avenue+des+Champs+%C3%89lys%C3%A9es",
+           loc: new google.maps.LatLng(48.871829,2.301078)
         }];
 
         for ( i=0; i<list.length; i++) {
-            codeAddress(list[i]);
+            markAddress(list[i]);
         }
     }
  	
@@ -138,3 +160,12 @@
     
     </script>
 </html>
+<!--
+https://maps.google.com/maps?q=Paris+4%C3%A8me++ROSIERS+(RUE+DES)&ie=UTF8&ll=48.857685,2.358413&spn=0.019271,0.046756&hnear=Rue+des+Rosiers,+75004+Paris,+%C3%8Ele-de-France,+France&t=m&z=16&layer=c&cbll=48.857778,2.358546&panoid=pqVgYA9gc3WYO7uVNkYUVw&cbp=12,248.28,,0,-3.64
+
+https://maps.google.com/maps?q=Paris+5%C3%A8me++ABBE+DE+L+EPEE+(RUE+DE+L+)&ie=UTF8&ll=48.843941,2.338962&spn=0.019276,0.046756&hnear=Rue+de+l'Abb%C3%A9+de+l'%C3%89p%C3%A9e,+75005+Paris,+%C3%8Ele-de-France,+France&t=m&z=16&layer=c&cbll=48.843941,2.338962&panoid=r_GRgZjrbDybUyvgieDWZQ&cbp=12,123.38,,0,-4.02
+
+https://maps.google.com/maps?q=Paris+15%C3%A8me++ABBE+GROULT+(RUE+DE+L+)&ie=UTF8&ll=48.839131,2.297258&spn=0.038556,0.093513&hnear=Rue+de+l'Abb%C3%A9+Groult,+75015+Paris,+%C3%8Ele-de-France,+France&t=m&z=15&layer=c&cbll=48.839182,2.297183&panoid=bU4xYzJLsDO3vTKdkFh4ow&cbp=12,329.65,,0,2.26
+
+https://maps.google.com/maps?q=Paris+8%C3%A8me+99+CHAMPS+ELYSEES+(AVENUE+DES)&ie=UTF8&ll=48.871829,2.301078&spn=0.019265,0.046756&hnear=99+Avenue+des+Champs+%C3%89lys%C3%A9es,+75008+Paris,+%C3%8Ele-de-France,+France&t=m&z=16&layer=c&cbll=48.8717,2.300872&panoid=XZQlO9m1akpTtrk-jcaq3w&cbp=12,151.85,,0,-2.09
+-->
